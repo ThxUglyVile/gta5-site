@@ -1,0 +1,99 @@
+/* Загальні кольори та шрифти */
+:root { --bg:#101512; --panel:#1b241f; --border:#344439; --text:#f3f6f2; --muted:#b9c6bc; --accent:#8ee2a0; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font:18px/1.7 Arial, sans-serif; }
+a { color:inherit; }
+/* Навігація */
+.topbar { background:#141c17; border-bottom:1px solid var(--border); }
+.nav-shell { max-width:1200px; margin:auto; min-height:82px; display:flex; justify-content:space-between; align-items:center; gap:25px; padding:15px 26px; }
+.brand { font-weight:900; font-size:29px; letter-spacing:1px; text-decoration:none; white-space:nowrap; }
+.brand span { color:var(--accent); }
+nav ul { list-style:none; display:flex; flex-wrap:wrap; gap:7px; padding:0; margin:0; }
+nav a { display:block; text-decoration:none; color:#d6e1d8; padding:9px 14px; border-radius:7px; font-size:16px; transition:background-color .2s,color .2s; }
+nav a:hover, nav a.current { background:#2d4734; color:#fff; }
+nav a:active { background:var(--accent); color:#0b140e; }
+/* Велика обкладинка */
+.hero { position:relative; min-height:420px; overflow:hidden; display:flex; align-items:end; background:#253329; }
+.hero-image { position:absolute; width:100%; height:100%; object-fit:cover; object-position:center 35%; }
+.hero-shade { position:absolute; inset:0; background:linear-gradient(90deg,rgba(10,18,13,.93),rgba(10,18,13,.53) 55%,rgba(10,18,13,.1)),linear-gradient(0deg,#101512,transparent 65%); }
+.hero-copy { position:relative; z-index:1; width:min(1200px,100%); margin:0 auto; padding:85px 26px 60px; }
+.eyebrow { font-size:14px; color:var(--accent); letter-spacing:2px; font-weight:800; }
+h1 { font-size:clamp(40px,5vw,70px); line-height:1.08; margin:15px 0; max-width:760px; }
+.hero p { font-size:21px; max-width:680px; color:#e4eae5; }
+/* Основний контент */
+.content { max-width:1200px; margin:0 auto; padding:38px 26px 85px; }
+h2 { font-size:30px; line-height:1.3; margin:12px 0 23px; }
+h3 { font-size:23px; line-height:1.3; margin:0 0 12px; }
+p { margin:0 0 17px; color:var(--muted); }
+.intro { display:grid; grid-template-columns:2fr 1fr; gap:35px; margin-bottom:48px; }
+.intro > div:first-child { max-width:760px; }
+.fact { display:grid; grid-template-columns:auto 1fr; gap:6px 16px; align-content:center; background:var(--panel); border:1px solid var(--border); padding:25px; border-radius:12px; }
+.fact strong { font-size:38px; line-height:1.2; color:var(--accent); }
+.fact span { align-self:center; color:var(--muted); }
+.cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.cards.three { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.card,.article { background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:28px; }
+.card { min-height:175px; }
+.card:hover { border-color:#6fae7b; }
+.text-link { color:var(--accent); text-decoration:none; font-size:16px; font-weight:700; }
+.text-link:hover { text-decoration:underline; }
+.article { margin-bottom:24px; }
+footer { border-top:1px solid var(--border); color:#95a49a; text-align:center; padding:25px; font-size:14px; }
+@media(max-width:850px) { .nav-shell { flex-direction:column; } .intro,.cards.three { grid-template-columns:1fr; } .hero { min-height:360px; } }
+@media(max-width:600px) { body { font-size:17px; } .cards { grid-template-columns:1fr; } .hero-copy { padding:65px 20px 40px; } .content { padding:28px 20px 65px; } nav ul { justify-content:center; } nav a { font-size:14px; padding:7px 9px; } }
+
+/* Коригування дизайну: компактні фото, виразніший текст */
+body { font-family: Arial, Helvetica, sans-serif; font-size: 19px; line-height: 1.6; font-weight: 400; }
+.nav-shell { justify-content: center; min-height: 64px; padding: 10px 22px; }
+nav a { font-size: 17px; font-weight: 600; }
+.hero { height: 340px; min-height: 0; max-height: 340px; }
+.hero-image { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+.hero-shade { background: linear-gradient(0deg,rgba(12,18,14,.96),rgba(12,18,14,.08) 85%); }
+.hero-copy { padding: 45px 30px 28px; }
+h1 { font-size: clamp(35px,4vw,54px); margin: 9px 0; font-weight: 800; }
+.hero p { font-size: 20px; font-weight: 500; margin-bottom: 0; }
+h2 { font-size: 31px; font-weight: 800; }
+h3 { font-size: 24px; font-weight: 700; }
+p { font-size: 19px; color: #e0e8e1; }
+.content { padding-top: 35px; }
+.card, .article { padding: 30px; }
+@media (max-width: 600px) { .hero { height: 290px; } .hero-copy { padding: 35px 20px 22px; } body,p { font-size: 17px; } }
+
+/* Виправлення: показуємо зображення повністю, без обрізання */
+.hero { background: #101512; }
+.hero-image { object-fit: contain; object-position: center center; }
+
+/* Фінальне виправлення: повнорозмірне фото без обрізання.
+   Зображення визначає висоту секції, тому сторінку можна прокрутити до кінця фото. */
+.hero { display:block; position:relative; height:auto; min-height:0; max-height:none; overflow:visible; background:#101512; }
+.hero-image { display:block; position:relative; inset:auto; width:100%; height:auto; max-height:none; object-fit:initial; object-position:initial; }
+.hero-shade { pointer-events:none; z-index:1; }
+.hero-copy { position:absolute; bottom:0; left:0; right:0; z-index:2; padding:55px 30px 34px; }
+@media(max-width:600px) { .hero { height:auto; max-height:none; } .hero-copy { padding:24px 20px 18px; } .hero-copy h1 { font-size:clamp(26px,7vw,42px); } .hero p { font-size:16px; } }
+
+/* Сторінка «Сюжет»: обкладинка менша, інші сторінки без змін */
+.hero-story { background: #101512; }
+.hero-story .hero-image { width: auto; max-width: 100%; height: auto; max-height: 480px; margin: 0 auto; object-fit: contain; }
+@media (max-width: 600px) { .hero-story .hero-image { max-height: 340px; } }
+
+/* Узгоджене масштабування: герой — адаптивний блок, зображення не фіксоване окремо від сторінки */
+.hero, .hero-story {
+  position: relative; display: flex; align-items: flex-end;
+  width: 100%; height: clamp(330px, 34vw, 530px);
+  min-height: 0; max-height: none; overflow: hidden;
+}
+.hero-image, .hero-story .hero-image {
+  position: absolute; inset: 0; display: block;
+  width: 100%; height: 100%; max-width: none; max-height: none;
+  margin: 0; object-fit: cover; object-position: center 40%;
+}
+.hero-shade {position:absolute; inset:0; z-index:1; background:linear-gradient(90deg,rgba(10,18,13,.82),rgba(10,18,13,.18) 75%),linear-gradient(0deg,#101512,transparent 68%);}
+.hero-copy {position:relative; inset:auto; bottom:auto; left:auto; right:auto; z-index:2; width:min(1200px,100%); margin:0 auto; padding:50px 26px 42px;}
+.hero-story {height: clamp(300px, 27vw, 410px);}
+.hero-story .hero-image {object-position:center center;}
+@media (max-width:600px) { .hero {height:360px;} .hero-story {height:300px;} .hero-copy {padding:25px 20px;} }
+
+/* Тільки головна і персонажі: зображення нижче, верх кадру не обрізається */
+.page-home .hero, .page-characters .hero { height: clamp(460px, 43vw, 650px); }
+.page-home .hero-image, .page-characters .hero-image { object-position: center top; }
+@media (max-width:600px) { .page-home .hero, .page-characters .hero { height: 440px; } }
